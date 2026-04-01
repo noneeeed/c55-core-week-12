@@ -1,0 +1,16 @@
+-- Create the decks table
+CREATE TABLE decks (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    description TEXT
+);
+
+-- Create the cards table
+CREATE TABLE cards (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    question TEXT NOT NULL,
+    answer TEXT NOT NULL,
+    learned INTEGER NOT NULL DEFAULT 0,
+    deck_id INTEGER NOT NULL,
+    FOREIGN KEY (deck_id) REFERENCES decks(id)
+);
